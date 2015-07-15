@@ -1,14 +1,66 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Hermes</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title>Hermes | Managing Workout Plans for Running Groups</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %> 
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.0.9/themes/default/style.min.css" />
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+    <div id="header">
+		<div id="header1">
+			<a href="#"><img id="logo" src=<%= image_path("hermes-logo.png") %> alt="" /></a> 
+			<h1 <a href="#">Hermes</a></h1>
+			<p id="subtitle">Managing Workout Plans for Running Groups</p>		
+		</div><!-- header1 -->
+		<div id="header2">
+			<div id="menu">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li>|<a href="#">Parkings</a></li>
+					<li>|<a href="#">Users</a></li>
+					<li>|<a href="#">Help</a></li>
+					<li>|<a href="#">Contact</a></li>
+				</ul>
+			</div>
+			<form id="search" method="get" action="#">
+				<input type="text" class="text" />
+				<input type="submit" class="submit" value="Search" />
+        </form>
+		</div><!-- header2 -->
+    </div><!-- header -->
+    <div id="main"><div id="main2">	
+            <div id="sidebar">
+                <h2>Quisque luctus</h2>
+                <ul>
+                    <li><a href="#">Fusce laoreet, ligula et rhoncus</a></li>
+                    <li><a href="#">Adipiscing gravida pulvinar eget</a></li>
+                    <li><a href="#">Cras consectetur commodo</a></li>
+                    <li><a href="#">Vulputate aliquam ipsum dictum</a></li>
+                    <li><a href="#">Vestibulum imperdiet accumsan</a></li>
+                </ul>
+                <h2>Integer rhoncus</h2>
+                <div class="box">
+                    <p>Mauris sollicitudin tincidunt magna vitae semper. Curabitur ut pharetra quam. Integer rhoncus convallis urna vitae mattis. Sed pharetra massa ac metus fermentum et iaculis enim accumsan.</p>
+                </div>
+                <h2>Mauris sagittis</h2>
+                <ul>
+                    <li><a href="#">Suspendisse faucibus purus</a></li>
+                    <li><a href="#">Tincidunt nec accumsan</a></li>
+                    <li><a href="#">Fusce laoreet, ligula et rhoncus</a></li>
+                    <li><a href="#">Adipiscing gravida pulvinar eget</a></li>
+                    <li><a href="#">Cras consectetur commodo</a></li>
+                </ul>
+            </div><!-- sidebar -->    	              
+            <div id="content">	
+            	<%= yield %>
+            </div><!-- content -->                    
+            <div class="clearing">&nbsp;</div>   
+    </div></div><!-- main --><!-- main2 -->
+    <div id="footer">
+        <p>Copyright &copy; 2015, powered by <a href="http://www.eeg.com.ar/">EGG</a> designed by <a href="http://www.webtemplateocean.com/">WebTemplateOcean.com</a></p>
+    </div>
 </body>
 </html>
