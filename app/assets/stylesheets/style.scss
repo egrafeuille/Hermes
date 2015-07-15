@@ -192,17 +192,19 @@ a:hover {
     text-align: left;
 }
 
+
 #sidebar ul {
     list-style: none;
     padding: 15px 0 24px 0;
-    background: url(image_path('box.jpg')) no-repeat top;
-}
+    background: url(image_path('box.jpg')) no-repeat top; 
+} 
 
+/*
 #sidebar ul li {
     padding: 3px 10px 3px 20px;
-    line-height: 1.8em;
-    border-bottom: 1px solid #E0EBF2;
-}
+    line-height: 1.8em; 
+    border-bottom: 1px solid #E0EBF2; 
+}*/
 
 #sidebar ul li a {
     padding: 0;
