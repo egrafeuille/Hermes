@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Macro cycle:</strong>
+  <%= @meso.macro_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @meso.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @meso.notes %>
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @meso.volume %>
+</p>
+
+<%= link_to 'Edit', edit_meso_path(@meso) %> |
+<%= link_to 'Back', mesos_path %>

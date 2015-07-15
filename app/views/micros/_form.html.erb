@@ -1,0 +1,33 @@
+<%= form_for(@micro) do |f| %>
+  <% if @micro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@micro.errors.count, "error") %> prohibited this micro from being saved:</h2>
+
+      <ul>
+      <% @micro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :meso_id %><br>
+    <%= f.number_field :meso_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :volume %><br>
+    <%= f.text_field :volume %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

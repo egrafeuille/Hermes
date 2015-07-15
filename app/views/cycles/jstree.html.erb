@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<h1>Listing Cycles en tree</h1>
+<div id="jstree_div"></div>
+
+<script>
+	$('#jstree_div').jstree({ 
+		"core" : {
+			"data" : {
+				"url" : "cycles.json",
+				"dataType" : "json" // needed only if you do not supply JSON headers
+			},
+			"themes" : {"theme" : "classic", "stripes" : false, "variant" : "large", "icons" : true, "dots" : false},
+		},
+		"plugins" : [ "themes", "json_data", "ui", "wholerow" ],
+	});
+</script>
+
+<!-- 
+	$('#jstree_div').jstree({ 
+		"core" : {
+			"data" : [
+				'Simple root node',	{
+					'text' : 'Root node 2',
+					'state' : {
+						'opened' : true,
+						'selected' : false
+					},
+					'children' : [
+						{ 'text' : 'Child 1' },
+						'Child 2'
+					]
+				}
+			],
+			"themes" : {"theme" : "classic", "stripes" : false, "variant" : "large", "icons" : true, "dots" : false},
+		},
+		"plugins" : [ "themes", "json_data", "ui", "wholerow", "checkbox" ],
+		"checkbox" : { "keep_selected_style" : false},
+	});
+
+ -->

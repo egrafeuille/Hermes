@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meso_id: 1
+  name: MyString
+  notes: MyText
+  volume: 9.99
+
+two:
+  meso_id: 1
+  name: MyString
+  notes: MyText
+  volume: 9.99

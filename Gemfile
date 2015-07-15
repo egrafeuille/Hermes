@@ -32,6 +32,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Ancestry for allows ActiveRecord model to be organised as a tree structure (or hierarchy)
+gem 'ancestry'
+
+# Use jstree for manage javascript trees in UI 
+#gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

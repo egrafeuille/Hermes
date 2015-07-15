@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Meso Cycles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Macro cycle</th>
+      <th>Name</th>
+      <th>Notes</th>
+      <th>Volume</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mesos.each do |meso| %>
+      <tr>
+        <td><%= meso.macro_id %></td>
+        <td><%= meso.name %></td>
+        <td><%= meso.notes %></td>
+        <td><%= meso.volume %></td>
+        <td><%= link_to 'Show', meso %></td>
+        <td><%= link_to 'Edit', edit_meso_path(meso) %></td>
+        <td><%= link_to 'Destroy', meso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meso cycle', new_meso_path %>

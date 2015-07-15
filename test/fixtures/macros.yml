@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  notes: MyText
+  startDate: 2015-07-05
+  endDate: 2015-07-05
+  volume: 9.99
+
+two:
+  name: MyString
+  notes: MyText
+  startDate: 2015-07-05
+  endDate: 2015-07-05
+  volume: 9.99
