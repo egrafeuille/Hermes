@@ -4,6 +4,9 @@
 <head>
     <title>Hermes | Managing Workout Plans for Running Groups</title>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %> 
+	<!-- improve below line to refer local style in ruby syntax -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.0.9/themes/default/style.min.css" /> 
+	<!-- <%= javascript_include_tag '/themes/default/style.min.css' %> -->
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 </head>
@@ -31,7 +34,7 @@
 		</div><!-- header2 -->
     </div><!-- header -->
     <div id="main"><div id="main2">
-    	<div id="sidebar">
+    	<!-- <div id="sidebar">
 		    <h2>Integer rhoncus</h2>
     		<div class="box">
         		<p>Mauris sollicitudin tincidunt magna vitae semper. Curabitur ut pharetra quam. Integer rhoncus convallis urna vitae mattis. Sed pharetra massa ac metus fermentum et iaculis enim accumsan.</p>
@@ -45,9 +48,8 @@
         		<li><a href="#">Cras consectetur commodo</a></li>
     		</ul>
 		</div><!-- sidebar -->		
-		<div id="content">	
-			<%= yield %>
-		</div><!-- content -->   	
+		
+		<%= yield %>	
 		<div class="clearing">&nbsp;</div>  
 		
     </div></div><!-- main --><!-- main2 -->

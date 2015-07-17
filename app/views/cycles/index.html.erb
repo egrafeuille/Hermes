@@ -1,40 +1,35 @@
-<%= render(:partial => "sidebar_tree", :object => @cycles ) %>
-<div id="content">	
-	<p id="notice"><%= notice %></p>
-	
-	<h1>Listing Cycles</h1>
-	
-	<table>
-	  <thead>
-	    <tr>
-	      <th>Name</th>
-	      <th>Notes</th>
-	      <th>Start date</th>
-	      <th>End date</th>
-	      <th>Volume</th>
-	      <th colspan="3"></th>
-	    </tr>
-	  </thead>
-	
-	  <tbody>
-	    <% @cycles.each do |cycle| %>
-	      <tr>
-	        <td><%= cycle.name %></td>
-	        <td><%= cycle.notes %></td>
-	        <td><%= cycle.start_date %></td>
-	        <td><%= cycle.end_date %></td>
-	        <td><%= cycle.volume %></td>
-	        <td><%= link_to 'Show', cycle %></td>
-	        <td><%= link_to 'Edit', edit_cycle_path(cycle) %></td>
-	        <td><%= link_to 'Destroy', cycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	      </tr>
-	    <% end %>
-	  </tbody>
-	</table>
-	
-	<br>
-	
-	<%= link_to 'New Cycle', new_cycle_path %>
+<p id="notice"><%= notice %></p>
 
-</div><!-- content -->                    
+<h1>Listing Cycles</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Notes</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Volume</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cycles.each do |cycle| %>
+      <tr>
+        <td><%= cycle.name %></td>
+        <td><%= cycle.notes %></td>
+        <td><%= cycle.start_date %></td>
+        <td><%= cycle.end_date %></td>
+        <td><%= cycle.volume %></td>
+        <td><%= link_to 'Show', cycle %></td>
+        <td><%= link_to 'Edit', edit_cycle_path(cycle) %></td>
+        <td><%= link_to 'Destroy', cycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cycle', new_cycle_path %>
