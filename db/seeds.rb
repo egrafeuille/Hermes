@@ -24,11 +24,13 @@ Macro.create(:name => 'Media Maraton Bs.As. Setiembre 2015',
 puts "Seeding: Cycles"
 Cycle.delete_all
 #
+start_date = Chronic.parse("next Monday")
+end_date = start_date + 4.months
 maraton = Cycle.create(
             :name => "Maraton Bs.As. Octubre 2015",
             :notes => "Plan para maraton de grupo A",
-            :start_date => Date.today,
-            :end_date => Date.today + 4.months,
+            :start_date => start_date,
+            :end_date => end_date,
             :volume => 360,
             :parent => nil)
 4.times do |m|
@@ -51,6 +53,34 @@ maraton = Cycle.create(
               :start_date => start_date,
               :end_date => end_date,
               :volume => 22)
+      7.times do |d|
+        start_date = micro.start_date + d.days
+        day = start_date.strftime("%A") 
+        case start_date.wday
+        when 0
+          volume = 0
+        when 1
+          volume = 7
+        when 2
+          volume = 0
+        when 3
+          volume = 6
+        when 4
+          volume = 0
+        when 5
+          volume = 0
+        when 6
+          volume = 9
+        end       
+        mano = micro.children.create(
+                :name => "Day #{m}.#{w}.#{d}",
+                :notes => day,
+                :start_date => start_date,
+                :end_date => start_date,
+                :volume => volume)
+        
+      end
     end
+    
 end
 

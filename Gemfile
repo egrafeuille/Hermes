@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Ancestry for allows ActiveRecord model to be organised as a tree structure (or hierarchy)
 gem 'ancestry'
 
+# Fantastic Date parser
+gem 'chronic'
+
 # Use jstree for manage javascript trees in UI 
 #gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
 

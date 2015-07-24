@@ -1,12 +1,11 @@
 class CyclesController < ApplicationController
   before_action :set_cycle, only: [:show, :edit, :update, :destroy]
 
-  # GET /jstree
-  # GET /jstree.json
-  #def jstree
-  #  @cycles = Cycle.all
-  #end
-
+  # GET /cycles_jstree
+  # GET /cycles_jstree.json
+  def cycles_jstree
+    @cycles = Cycle.all
+  end
 
   # GET /cycles
   # GET /cycles.json
@@ -21,7 +20,7 @@ class CyclesController < ApplicationController
 
   # GET /cycles/new
   def new
-    @cycle = Cycle.new
+    @cycle = Cycle.new(:parent_id => params[:parent_id])
   end
 
   # GET /cycles/1/edit
