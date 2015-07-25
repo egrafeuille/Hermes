@@ -3,9 +3,9 @@ class CyclesController < ApplicationController
 
   # GET /cycles_jstree
   # GET /cycles_jstree.json
-  def cycles_jstree
-    @cycles = Cycle.all
-  end
+  # def cycles_jstree
+  #  @cycles = Cycle.all
+  # end
 
   # GET /cycles
   # GET /cycles.json

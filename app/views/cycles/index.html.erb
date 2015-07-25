@@ -1,24 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Cycles</h1>
+<h1>Listing Cycles (tree)</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Notes</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Volume</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  	<%= nested_cycles(@cycles.arrange) %>
-  </tbody>
-</table>
+<div id="jstree_div"></div>
 
 <br>
 
 <%= link_to 'New Cycle', new_cycle_path %>
+
+<script>
+	$('#jstree_div')
+		.jstree({ 
+			"core" : {
+				"multiple" : false,
+				"data" : {
+					"url" : "cycles.json",
+					"dataType" : "json" 
+				},
+				"themes" : {"theme" : "classic", "stripes" : false, "icons" : true, "dots" : true},
+			},
+			"state" : { "key" : "cycles" },
+			"plugins" : [ "themes", "json_data", "ui", "wholerow", "state" ]
+		})
+		.on('changed.jstree', function (e, data) {
+			var href_address = data.instance.get_node(data.selected[0]).a_attr.href;
+			//$.get(href_address);
+			window.location.assign(href_address);
+		});		
+	
+</script>
