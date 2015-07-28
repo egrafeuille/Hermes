@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :moves
   resources :cycles
-  resources :micros
-  resources :mesos
-  resources :macros
+  #resources :macros
+  #resources :mesos
+  #resources :micros
+  #resources :nanos
+  #resources :steps
   
-  get '/cycles_jstree', :to => 'cycles#jstree'
+  #get '/cycles_jstree', :to => 'cycles#jstree'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,5 @@
+autoload :Macro, 'move'
+autoload :Meso, 'move'
+autoload :Micro, 'move'
+autoload :Nano, 'move'
+autoload :Step, 'move'

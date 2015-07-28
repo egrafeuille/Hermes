@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @move.type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @move.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @move.notes %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @move.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @move.end_date %>
+</p>
+
+<p>
+  <strong>Times:</strong>
+  <%= @move.times %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @move.distance %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @move.duration %>
+</p>
+
+<p>
+  <strong>Pace:</strong>
+  <%= @move.pace %>
+</p>
+
+<p>
+  <strong>Rest:</strong>
+  <%= @move.rest %>
+</p>
+
+<%= link_to 'Edit', edit_move_path(@move) %> |
+<%= link_to 'Back', moves_path %>

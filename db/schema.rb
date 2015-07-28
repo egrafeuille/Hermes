@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150725232227) do
+ActiveRecord::Schema.define(version: 20150727214025) do
 
   create_table "cycles", force: :cascade do |t|
     t.string   "name"
@@ -22,8 +22,28 @@ ActiveRecord::Schema.define(version: 20150725232227) do
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
     t.string   "ancestry"
+    t.string   "type"
   end
 
   add_index "cycles", ["ancestry"], name: "index_cycles_on_ancestry"
+
+  create_table "moves", force: :cascade do |t|
+    t.string   "type"
+    t.string   "name"
+    t.text     "notes"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "times"
+    t.decimal  "distance",   precision: 8, scale: 3, default: 0.0
+    t.time     "duration"
+    t.time     "pace"
+    t.integer  "intensity"
+    t.time     "rest"
+    t.string   "ancestry"
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+  end
+
+  add_index "moves", ["ancestry"], name: "index_moves_on_ancestry"
 
 end

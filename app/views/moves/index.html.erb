@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Moves</h1>
+
+<div id="jstree_div"></div>
+
+<script>
+	$('#jstree_div')
+		.jstree({ 
+			"core" : {
+				"multiple" : false,
+				"data" : {
+					"url" : "moves.json",
+					"dataType" : "json" 
+				},
+				"themes" : {"theme" : "classic", "stripes" : false, "icons" : true, "dots" : true},
+			},
+			"state" : { "key" : "moves" },
+			"plugins" : [ "themes", "json_data", "ui", "wholerow", "state" ]
+		})
+		.on('changed.jstree', function (e, data) {
+			var href_address = data.instance.get_node(data.selected[0]).a_attr.href;
+			window.location.assign(href_address);
+		});		
+	
+</script>
+
+<!-- 
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Notes</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Times</th>
+      <th>Distance</th>
+      <th>Duration</th>
+      <th>Pace</th>
+      <th>Rest</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @moves.each do |move| %>
+      <tr>
+        <td><%#= move.name %></td>
+        <td><%#= move.notes %></td>
+        <td><%#= move.start_date %></td>
+        <td><%#= move.end_date %></td>
+        <td><%#= move.times %></td>
+        <td><%#= move.distance %></td>
+        <td><%#= move.duration %></td>
+        <td><%#= move.pace %></td>
+        <td><%#= move.rest %></td>
+        <td><%#= link_to 'Show', move %></td>
+        <td><%#= link_to 'Edit', edit_move_path(move) %></td>
+        <td><%#= link_to 'Destroy', move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> 
+-->
+<br>
+
+<%= link_to 'New Move', new_move_path %>

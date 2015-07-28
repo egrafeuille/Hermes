@@ -1,0 +1,57 @@
+<%= form_for(@move) do |f| %>
+  <% if @move.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@move.errors.count, "error") %> prohibited this move from being saved:</h2>
+
+      <ul>
+      <% @move.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.datetime_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.datetime_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :times %><br>
+    <%= f.number_field :times %>
+  </div>
+  <div class="field">
+    <%= f.label :distance %><br>
+    <%= f.text_field :distance %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br>
+    <%= f.time_select :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :pace %><br>
+    <%= f.time_select :pace %>
+  </div>
+  <div class="field">
+    <%= f.label :rest %><br>
+    <%= f.time_select :rest %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
