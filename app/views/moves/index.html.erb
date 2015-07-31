@@ -2,7 +2,10 @@
 
 <h1>Listing Moves</h1>
 
-<div id="jstree_div"></div>
+<p>
+	<div id="jstree_div"></div>
+</p>
+
 
 <script>
 	$('#jstree_div')
@@ -14,6 +17,10 @@
 					"dataType" : "json" 
 				},
 				"themes" : {"theme" : "classic", "stripes" : false, "icons" : true, "dots" : true},
+			},
+			'types' : {
+				'default' : { 'icon' : 'folder' },
+				'file' : { 'valid_children' : [], 'icon' : 'file' }
 			},
 			"state" : { "key" : "moves" },
 			"plugins" : [ "themes", "json_data", "ui", "wholerow", "state" ]
