@@ -2,54 +2,72 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @move.name %>
-</p>
+<table width="80%">
+	<tr>
+		<td colspan="2">
+		  <strong>Name:</strong>
+		  <%= @move.name %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		  <strong>Notes:</strong>
+		  <%= @move.notes %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		  <strong>Start date:</strong>
+		  <%= nice_date(@move.start_date) %>
+		</td>
+		<td>
+		  <% if @move.type != "Nano" %>
+			  <strong>End date:</strong>
+			  <%= nice_date(@move.end_date) %>
+		  <% end %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		  <strong>Distance:</strong>
+		  <%= @move.distance %>
+		</td>
+		<td>
+		  <strong>Duration:</strong>
+		  <%= @move.duration %>
+		</td>
+	</tr>
+</table>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @move.notes %>
-</p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @move.start_date %>
-</p>
-
-<% if @move.type != "Nano" %>
-	<p>
-	  <strong>End date:</strong>
-	  <%= @move.end_date %>
-	</p>
+<% if @move.type == "Nano" %>
+	<table width="80%">
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Notes</th>
+	      <th>Times</th>
+	      <th>Distance</th>
+	      <th>Duration</th>
+	      <th>Pace</th>
+	      <th>Rest</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% for step in @move.steps %>
+			<tr>
+				<td><%= step.name %></td>
+				<td><%= step.notes %></td>
+				<td><%= step.times %></td>
+				<td><%= step.distance %></td>
+				<td><%= step.duration %></td>
+				<td><%= step.pace %></td>
+				<td><%= step.rest %></td>
+			</tr>
+		<% end %> 
+	  </tbody>
+	</table> 
 <% end %>
-
-<!-- 
-<p>
-  <strong>Times:</strong>
-  <%= @move.times %>
-</p> -->
-
-<p>
-  <strong>Distance:</strong>
-  <%= @move.distance %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @move.duration %>
-</p>
-
-<!-- 
-<p>
-  <strong>Pace:</strong>
-  <%= @move.pace %>
-</p>
-
-<p>
-  <strong>Rest:</strong>
-  <%= @move.rest %>
-</p> -->
 
 <%= link_to 'Edit', edit_move_path(@move) %> |
 <%= link_to 'Back', moves_path %>

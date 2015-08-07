@@ -38,6 +38,9 @@ gem 'ancestry'
 # Fantastic Date parser
 gem 'chronic'
 
+# For master-detail forms (using jQuery or Prototype)
+gem 'nested_form'
+
 # Use jstree for manage javascript trees in UI 
 #gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
 

@@ -4,7 +4,7 @@ class MovesController < ApplicationController
   # GET /moves
   # GET /moves.json
   def index
-    @moves = Move.all
+      @moves = Move.all
   end
 
   # GET /moves/1
@@ -69,6 +69,8 @@ class MovesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def move_params
-      params.require(:move).permit(:name, :notes, :start_date, :end_date, :times, :distance, :duration, :pace, :rest)
+      params.require(:move).permit(:name, :notes, :start_date, :end_date, :distance, :duration,  
+            steps_attributes: [:id, :name, :notes, :times, :distance, :duration, :intensity, :pace, :rest, :_destroy])
     end
+    
 end

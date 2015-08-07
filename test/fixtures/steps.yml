@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  notes: MyText
+  times: 1
+  distance: 9.99
+  duration: 2015-08-05 11:04:44
+  pace: 2015-08-05 11:04:44
+  intensity: 1
+  rest: 2015-08-05 11:04:44
+  nano_id: 
+
+two:
+  name: MyString
+  notes: MyText
+  times: 1
+  distance: 9.99
+  duration: 2015-08-05 11:04:44
+  pace: 2015-08-05 11:04:44
+  intensity: 1
+  rest: 2015-08-05 11:04:44
+  nano_id: 

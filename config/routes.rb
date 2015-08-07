@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :moves
-  resources :cycles
+  #resources :maacros, controller: 'moves', type: 'Maacro' 
+  #resources :meesos, controller: 'moves', type: 'Meeso'
+  #resources :miicros, controller: 'moves', type: 'Miicro'
+  #resources :naanos, controller: 'moves', type: 'Naano'
+  #resources :cycles
   #resources :macros
   #resources :mesos
   #resources :micros
@@ -14,6 +18,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  root 'moves#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
