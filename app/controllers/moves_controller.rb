@@ -10,15 +10,18 @@ class MovesController < ApplicationController
   # GET /moves/1
   # GET /moves/1.json
   def show
+    @disabled_mode = true
   end
 
   # GET /moves/new
   def new
+    @disabled_mode = false    
     @move = Move.new(:parent_id => params[:parent_id])
   end
 
   # GET /moves/1/edit
   def edit
+    @disabled_mode = false
   end
 
   # POST /moves
