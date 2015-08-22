@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require jstree 
 //= require jquery_nested_form
+//= require application_jquery
 //= require_tree .

@@ -52,13 +52,24 @@
 	  	<tr>
 			<td colspan="2">  		
 			  <div class="field">
-			    <%= f.label :distance %><br>
+			    <%= f.label :guideline_distance %><br>
 			    <%= f.text_field :distance, disabled: @disabled_mode %>
 			  </div>
 			<td colspan="2">
 			  <div class="field">
 			    <%= f.label :duration %><br>
 			    <%= f.time_select :duration, disabled: @disabled_mode %>
+			  </div>
+			</td>
+	  	</tr>
+	  	<tr>
+			<td colspan="2">  		
+			  <div class="field">
+			    <%= f.label :planned_distance %><br>
+			    <%= f.text_field :planned_distance, disabled: true %>
+			  </div>
+			<td colspan="2">
+			  <div class="field">
 			  </div>
 			</td>
 	  	</tr>
@@ -72,12 +83,18 @@
 		      <th>Times</th>
 		      <th>Distance</th>
 		      <th>Duration</th>
+		      <th>Intensity</th>
 		      <th>Pace</th>
 		      <th>Rest</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 	  		<%= f.fields_for :steps %>
+			<% if !@disabled_mode %>	  	
+		  		<tr>
+					<td colspan="4"><%= link_to_add_fields "Add Step", f, :steps %></td>
+				</tr>
+			<% end %>
 	  	  </tbody>
 		</table> 
 	<% end %>
@@ -87,3 +104,4 @@
 	<% end %>
   </div>
 <% end %>
+

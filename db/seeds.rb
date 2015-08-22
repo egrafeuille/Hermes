@@ -120,7 +120,7 @@ maraton = Move.create(
             6
           when 6
             9
-        end       
+        end     
         nano = micro.children.create(
                 :type => 'Nano',
                 :name => "Day #{m}.#{w}.#{d}",
@@ -129,27 +129,29 @@ maraton = Move.create(
                 :end_date => start_date,
                 :distance => distance
                 )
-        step1 = nano.steps.create(
-                :name => "Step 1",
-                :notes => "Warming Up",
-                :times => 1,
-                :intensity => 70,
-                :duration => Chronic.parse("10 minutes")
-                )
-        step2 = nano.steps.create(
-                :name => "Step 2",
-                :notes => "Main",
-                :times => 6,
-                :intensity => 100,
-                :distance => 1.5
-                )                
-        step3 = nano.steps.create(
-                :name => "Step 3",
-                :notes => "Calm Down",
-                :times => 1,
-                :intensity => 70,
-                :duration => Chronic.parse("15 minutes")
-                )
+        if distance > 0
+          step1 = nano.steps.create(
+                  :name => "Step 1",
+                  :notes => "Warming Up",
+                  :times => 1,
+                  :intensity => 70,
+                  :duration => Chronic.parse("10 minutes")
+                  )
+          step2 = nano.steps.create(
+                  :name => "Step 2",
+                  :notes => "Main",
+                  :times => 6,
+                  :intensity => 100,
+                  :distance => 1.5
+                  )                
+          step3 = nano.steps.create(
+                  :name => "Step 3",
+                  :notes => "Calm Down",
+                  :times => 1,
+                  :intensity => 70,
+                  :duration => Chronic.parse("15 minutes")
+                  )
+        end
       end
     end
 end

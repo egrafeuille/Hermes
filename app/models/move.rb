@@ -13,10 +13,10 @@ class Move < ActiveRecord::Base
   scope :macros, -> { where(type: 'Macro') } 
   scope :mesos, -> { where(type: 'Meso') }
   scope :micros, -> { where(type: 'Micro') }
-  scope :nanos, -> { where(type: 'Nano') }    
+  scope :nanos, -> { where(type: 'Nano') }
 
   def as_json(*args)
-      super.tap { |hash| hash["text"] = hash.delete "name" }
+    super.tap { |hash| hash["text"] = hash.delete "name" }
   end
 
   def self.type
@@ -27,6 +27,14 @@ class Move < ActiveRecord::Base
     :no_such_column_because_we_dont_want_type_casting
   end
   
+  def planned_distance
+    if type == "Nano"
+      steps.to_a.sum { |step| step.times * step.distance}
+    else
+      children.to_a.sum { |child| child.type == "Nano" ? child.distance : child.planned_distance }
+    end
+     
+  end
 end
 
 

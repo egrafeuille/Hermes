@@ -1,10 +1,13 @@
 <tr>
-	<td><%= f.text_field :name, size:3 %></td>
-	<td><%= f.text_field :notes, size:20 %></td>
-	<td><%= f.text_field :times, size:3 %></td>
-	<td><%= f.text_field :distance, size:6 %></td>
-	<td><%= f.text_field :duration, size:6 %></td>
-	<td><%= f.text_field :pace, size:6 %></td>
-	<td><%= f.text_field :rest, size:6 %></td>
-	<td><%= f.link_to_remove "remove" %></td>
+	<td><%= f.text_field :name, size:3, disabled: @disabled_mode %></td>
+	<td><%= f.text_field :notes, size:20, disabled: @disabled_mode %></td>
+	<td><%= f.text_field :times, size:3, disabled: @disabled_mode %></td>
+	<td><%= f.text_field :distance, size:6, disabled: @disabled_mode %></td>
+	<td><%= f.text_field :duration, size:6, disabled: @disabled_mode %></td>
+	<td><%= f.text_field :intensity, size:6, disabled: @disabled_mode %></td>
+	<td><%= f.text_field :pace, size:6, disabled: @disabled_mode %></td>
+	<td><%= f.text_field :rest, size:6, disabled: @disabled_mode %></td>
+	<% if !@disabled_mode %>	
+		<td><%= link_to_remove_fields "Remove", f %></td>
+	<% end %>
 </tr>
