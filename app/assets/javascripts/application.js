@@ -16,4 +16,5 @@
 //= require jstree 
 //= require jquery_nested_form
 //= require application_jquery
+//= require jquery-readyselector
 //= require_tree .

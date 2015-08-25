@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
+ready = ->
   $('#jstree').jstree(
     'core':
       'multiple': false
@@ -19,7 +19,6 @@ $ ->
       'file':
         'valid_children': []
         'icon': 'file'
-    'state': 'key': 'moves'
     'plugins': [
       'themes'
       'json_data'
@@ -27,10 +26,14 @@ $ ->
       'wholerow'
       'state'
     ]).on 'changed.jstree', (e, data) ->
-      href_address = data.instance.get_node(data.selected[0]).a_attr.href
-      window.location.assign href_address
-    return
+    href_address = undefined
+    href_address = data.instance.get_node(data.selected[0]).a_attr.href
+    window.location.assign href_address
   return
+
+$(document).ready ready
+$(document).on 'page:load', ready
+
 $ ->
   $(document).on 'click', '#remove_link', (e) ->
     e.preventDefault()
