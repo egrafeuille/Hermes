@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150807184707) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cycles", force: :cascade do |t|
     t.string   "name"
     t.text     "notes"
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150807184707) do
     t.string   "type"
   end
 
-  add_index "cycles", ["ancestry"], name: "index_cycles_on_ancestry"
+  add_index "cycles", ["ancestry"], name: "index_cycles_on_ancestry", using: :btree
 
   create_table "moves", force: :cascade do |t|
     t.string   "type"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150807184707) do
     t.datetime "updated_at",                                       null: false
   end
 
-  add_index "moves", ["ancestry"], name: "index_moves_on_ancestry"
+  add_index "moves", ["ancestry"], name: "index_moves_on_ancestry", using: :btree
 
   create_table "steps", force: :cascade do |t|
     t.string   "name"
@@ -55,7 +58,5 @@ ActiveRecord::Schema.define(version: 20150807184707) do
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
   end
-
-  add_index "steps", ["move_id"], name: "index_steps_on_move_id"
 
 end

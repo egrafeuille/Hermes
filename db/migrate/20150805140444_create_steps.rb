@@ -9,7 +9,8 @@ class CreateSteps < ActiveRecord::Migration
       t.time :pace
       t.integer :intensity
       t.time :rest
-      t.references :nano, index: true, foreign_key: true
+      # t.references :nano, index: true, foreign_key: true
+      t.integer :nano_id
 
       t.timestamps null: false
     end

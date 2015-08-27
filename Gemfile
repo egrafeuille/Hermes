@@ -4,7 +4,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+# Use postgresql as the database for Active Record
+gem 'pg'
+# Use taps for migrate from sqlite3 to pg
+# gem 'taps'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,6 +44,8 @@ gem 'chronic'
 
 # For master-detail forms (using jQuery or Prototype)
 gem 'nested_form'
+
+# 
 
 # Use jstree for manage javascript trees in UI 
 #gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
