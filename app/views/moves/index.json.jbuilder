@@ -9,7 +9,7 @@ json.array!(@moves) do |move|
         json.parent move.parent_id.to_s
       end
       json.text "<strong>" + move.name + "</strong> - " + move.notes + " G: " + move.distance.to_s + " P: " + move.planned_distance.to_s
-      json.icon image_path(move.type + "-ciclo")
+      json.icon asset_path(move.type + "-ciclo.jpg")
       href_hash = { :href => move_url(move) } 
       json.a_attr href_hash 
     end
