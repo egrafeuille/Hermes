@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+  get 'welcome/index'
+
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  
+  resources :users
+  resources :sessions
+  
   resources :moves
   #resources :maacros, controller: 'moves', type: 'Maacro' 
   #resources :meesos, controller: 'moves', type: 'Meeso'
@@ -18,7 +28,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'moves#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

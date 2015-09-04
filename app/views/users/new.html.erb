@@ -1,0 +1,47 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :birthDate %>
+    <%= f.date_select :birthDate %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %>
+    <%= f.select(:sex, options_for_select([['Male', 'M'], ['Female', 'F'], ['Unknown', 'U']])) %>
+  </div>
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.select(:type, options_for_select(%w(Trainer Player))) %>
+  </div>
+  <div id="player_fields" class="field" style="display:none;">
+    <%= f.label :trainer_id %>
+    <%= f.collection_select(:trainer_id, User.trainers, :id, :username) %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+<% end %>

@@ -1,14 +1,27 @@
 <div id="sidebar">
-    <h2>Integer rhoncus</h2>
+  <h2>User</h2>
+  <div class="box">  
+  <% if current_user %>
+    <p>Logged in as <%= current_user.username %></p>
+    <%= link_to "Log out", logout_path %>
+  <% else %>
+    <%= link_to "Sign up", signup_path %> or
+    <%= link_to "Log in", login_path  %>
+  <% end %>
+  </div>
+  	
+	<h2>Ads</h2>
 	<div class="box">
-		<p>Mauris sollicitudin tincidunt magna vitae semper. Curabitur ut pharetra quam. Integer rhoncus convallis urna vitae mattis. Sed pharetra massa ac metus fermentum et iaculis enim accumsan.</p>
+		<p>Coca Cola Ad</p>
+		<p>Maraton Ad</p>
+		<p>Etc.</p>
 	</div>
-	<h2>Mauris sagittis</h2>
+	<!-- <h2>Mauris sagittis</h2>
 	<ul>
 		<li><a href="#">Suspendisse faucibus purus</a></li>
 		<li><a href="#">Tincidunt nec accumsan</a></li>
 		<li><a href="#">Fusce laoreet, ligula et rhoncus</a></li>
 		<li><a href="#">Adipiscing gravida pulvinar eget</a></li>
 		<li><a href="#">Cras consectetur commodo</a></li>
-	</ul>
+	</ul> -->
 </div><!-- sidebar -->		
