@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'users/edit'
+
+  get 'users/update'
+
+  get 'users/destroy'
+
   get 'welcome/index'
 
   get "logout" => "sessions#destroy", :as => "logout"
@@ -8,7 +18,7 @@ Rails.application.routes.draw do
   
   resources :users
   resources :sessions
-  
+  resources :groups  
   resources :moves
   #resources :maacros, controller: 'moves', type: 'Maacro' 
   #resources :meesos, controller: 'moves', type: 'Meeso'

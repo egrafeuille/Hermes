@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   def nav_links
-    items = [home_link, plan_link, workout_link, group_link, target_link, setting_link]
+    items = [home_link, plan_link, group_link, user_link, target_link, setting_link]
     content_tag :ul, :class => "nav" do
       items.collect { |item| concat item}
     end
@@ -15,25 +15,25 @@ module ApplicationHelper
 
   def plan_link
     nav_item_active_if(false) do
-      link_to "Plan", moves_path
-    end
-  end
-
-  def workout_link
-    nav_item_active_if(false) do
-      link_to "Workout", "#"
+      link_to "Plans", moves_path
     end
   end
 
   def group_link
     nav_item_active_if(false) do
-      link_to "Group", "#"
+      link_to "Groups", groups_path
+    end
+  end
+
+  def user_link
+    nav_item_active_if(false) do
+      link_to "Users", users_path
     end
   end
 
   def target_link
     nav_item_active_if(false) do
-      link_to "Target", "#"
+      link_to "Targets", "#"
     end
   end
 

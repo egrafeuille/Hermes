@@ -1,6 +1,6 @@
 class MovesController < ApplicationController
   before_action :set_move, only: [:show, :edit, :update, :destroy]
-  before_filter :require_login
+  # before_filter :require_login
 
   # GET /moves
   # GET /moves.json
