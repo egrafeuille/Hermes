@@ -1,0 +1,54 @@
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username, disabled: true  %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, disabled: @trainer_mode  %>
+  </div>
+  <% if action_name == 'new' %>
+	  <div class="field">
+	    <%= f.label :password %>
+	    <%= f.password_field :password %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :password_confirmation %>
+	    <%= f.password_field :password_confirmation %>
+	  </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :birthDate %>
+    <%= f.date_select :birthDate, disabled: @trainer_mode  %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %>
+    <%= f.select(:sex, options_for_select([['Male', 'M'], ['Female', 'F'], ['Unknown', 'U']]), {}, {:disabled => @trainer_mode}) %>
+  </div>
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.select(:type, options_for_select(%w(Trainer Player), @user.type), {}, {:disabled => @trainer_mode}) %>
+  </div>
+  <div id="player_fields" style="display:<%= @user.type == 'Trainer' ? 'none' : 'block' %>;">
+	  <div class="field">
+	    <%= f.label :trainer_id %>
+	    <%= f.collection_select(:trainer_id, User.trainers, :id, :username, {}, {:disabled => @trainer_mode}) %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :group_id %>
+	    <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {:disabled => !@trainer_mode}) %>
+	  </div>
+  </div>
+  
+  <div class="actions"><%= f.submit %></div>
+<% end %>
