@@ -1,14 +1,14 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
-  has_many :groups          #, -> { where(type: 'Trainer') }
-  belongs_to :group         #, -> { where(type: 'Player') }
+  has_many :groups          
+  belongs_to :group         
   belongs_to :trainer, class_name: "User", foreign_key: "trainer_id"
   
   validates :username, presence: true, uniqueness: true  
-  validates :password, presence: true, confirmation: true, length: { in: 6..20 }, :on => :create
+  validates :password, presence: true, confirmation: true, length: { in: 5..20 }, :on => :create
   validates :password_confirmation, presence: true, :on => :create
   validates :email, presence: true
-  validates :sex, inclusion: { in: %w(M F U) }
+  validates :sex, inclusion: { in: %w(U M F) }
   validates :type, inclusion: { in: %w(Trainer Player) }
   validates :trainer_id, presence: true , unless: "type=='Trainer'"
   scope :trainers, -> { where(type: 'Trainer') }
