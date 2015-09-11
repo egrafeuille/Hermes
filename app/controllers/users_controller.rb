@@ -63,6 +63,9 @@ class UsersController < ApplicationController
     end
     
     def set_mode
-      @trainer_mode = current_user.type == 'Trainer'
+      @trainer_mode = false
+      if !current_user.nil?
+        @trainer_mode = current_user.type == 'Trainer'
+      end  
     end  
 end

@@ -11,7 +11,7 @@
   <% end %>
   <div class="field">
     <%= f.label :username %>
-    <%= f.text_field :username, disabled: true  %>
+    <%= f.text_field :username, disabled: @trainer_mode  %>
   </div>
   <div class="field">
     <%= f.label :email %>
@@ -33,20 +33,20 @@
   </div>
   <div class="field">
     <%= f.label :sex %>
-    <%= f.select(:sex, options_for_select([['Male', 'M'], ['Female', 'F'], ['Unknown', 'U']]), {}, {:disabled => @trainer_mode}) %>
+    <%= f.select(:sex, options_for_select([['Unknown', 'U'], ['Male', 'M'], ['Female', 'F']]), {}, {:disabled => @trainer_mode}) %>
   </div>
   <div class="field">
     <%= f.label :type %>
-    <%= f.select(:type, options_for_select(%w(Trainer Player), @user.type), {}, {:disabled => @trainer_mode}) %>
+    <%= f.select(:type, options_for_select(%w(Trainer Player), @user.type), {:include_blank => 'Select...'}, {:disabled => @trainer_mode}) %>
   </div>
-  <div id="player_fields" style="display:<%= @user.type == 'Trainer' ? 'none' : 'block' %>;">
+  <div id="player_fields" style="display:<%= @user.type == 'Player' ? 'block' : 'none'  %>;">
 	  <div class="field">
 	    <%= f.label :trainer_id %>
-	    <%= f.collection_select(:trainer_id, User.trainers, :id, :username, {}, {:disabled => @trainer_mode}) %>
+	    <%= f.collection_select(:trainer_id, User.trainers, :id, :username, {:include_blank => 'Select...'}, {:disabled => @trainer_mode}) %>
 	  </div>
 	  <div class="field">
 	    <%= f.label :group_id %>
-	    <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {:disabled => !@trainer_mode}) %>
+	    <%= f.collection_select(:group_id, Group.all, :id, :name, {:include_blank => 'Select...'}, {:disabled => !@trainer_mode}) %>
 	  </div>
   </div>
   
