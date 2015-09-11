@@ -48,6 +48,8 @@ gem 'nested_form'
 # For user management 
 gem "sorcery"
 
+gem 'rails_12factor', group: :production
+
 # Use jstree for manage javascript trees in UI 
 #gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
 
