@@ -5,7 +5,11 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.players.where(trainer_id: current_user.id)
+    if @trainer_mode
+      @users = User.players.where(trainer_id: current_user.id)
+    else
+      @users = User.find(current_user.id)
+    end
     # @groups = Group.all
   end
 

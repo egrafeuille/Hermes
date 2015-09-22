@@ -89,3 +89,48 @@ $ ->
     content = $(this).data('content')
     add_fields link, association, content
   return
+
+datediff = (date1, date2, interval) ->
+  second = 1000
+  minute = second * 60
+  hour = minute * 60
+  day = hour * 24
+  week = day * 7
+  date1 = new Date(date1)
+  date2 = new Date(date2)
+  timediff = date2 - date1
+  if isNaN(timediff)
+    return NaN
+  switch interval
+    when 'years'
+      return date2.getFullYear() - date1.getFullYear()
+    when 'months'
+      return date2.getFullYear() * 12 + date2.getMonth() - (date1.getFullYear() * 12 + date1.getMonth())
+    when 'weeks'
+      return Math.floor(timediff / week)
+    when 'days'
+      return Math.floor(timediff / day)
+    when 'hours'
+      return Math.floor(timediff / hour)
+    when 'minutes'
+      return Math.floor(timediff / minute)
+    when 'seconds'
+      return Math.floor(timediff / second)
+    else
+      return undefined
+  return
+  
+@refresh_lengths = ->
+  sy = $('#move_start_date_1i').val()
+  sm = $('#move_start_date_2i').val()-1 
+  sd = $('#move_start_date_3i').val()
+  ey = $('#move_end_date_1i').val()
+  em = $('#move_end_date_2i').val()-1
+  ed = $('#move_end_date_3i').val()
+  startdate = new Date(sy,sm,sd)
+  enddate = new Date(ey,em,ed)
+  difday = datediff(startdate,enddate,'days')
+  difweek = datediff(startdate,enddate,'weeks')
+  $('#period_length_days').text(difday) 
+  $('#period_length_weeks').text(difweek)
+  return

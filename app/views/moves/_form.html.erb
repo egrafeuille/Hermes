@@ -41,14 +41,14 @@
 			<td colspan="2">
 			  <div class="field">
 			    <%= f.label :start_date %><br>
-			    <%= f.date_select :start_date, disabled: @disabled_mode %>
+			    <%= f.date_select(:start_date, {:disabled => @disabled_mode, :order => [:day, :month, :year]}, {:onchange =>"refresh_lengths()"}) %>
 			  </div>
 			</td>
 			<td colspan="2">				
 			  <% if @move.type != "Nano" %>
 				  <div class="field">
 				    <%= f.label :end_date %><br>
-				    <%= f.date_select :end_date, disabled: @disabled_mode %>
+				    <%= f.date_select(:end_date, {:disabled => @disabled_mode, :order => [:day, :month, :year]}, {:onchange =>"refresh_lengths()"}) %>
 				  </div>
 			  <% end %>
 			</td>
@@ -56,13 +56,22 @@
 	  	<tr>
 			<td colspan="2">  		
 			  <div class="field">
+			    <%= f.label "period_length_days" %><br>
+			    <p id="period_length_days"><%= @move.period_length_days %> days</p>
+			  </div>
+			</td>
+			<td colspan="2">  		
+			  <div class="field">
+			    <%= f.label "period_length_weeks" %><br>
+			    <p id="period_length_weeks"><%= @move.period_length_weeks %> weeks</p>			    
+			  </div>
+			</td>
+	  	</tr>	  	
+	  	<tr>
+			<td colspan="2">  		
+			  <div class="field">
 			    <%= f.label :guideline_distance %><br>
 			    <%= f.text_field :distance, disabled: @disabled_mode %>
-			  </div>
-			<td colspan="2">
-			  <div class="field">
-			    <%= f.label :duration %><br>
-			    <%= f.time_select :duration, disabled: @disabled_mode %>
 			  </div>
 			</td>
 	  	</tr>

@@ -31,6 +31,16 @@ class Move < ActiveRecord::Base
       planned_distance = children.to_a.sum { |child| child.type == "Nano" ? child.distance : child.planned_distance }
     end
   end
+  
+  def period_length_days
+    from_date = start_date.nil? ? 0 : start_date 
+    to_date = end_date.nil? ? 0 : end_date
+    ((to_date - from_date)/(60*60*24)).floor
+  end
+  
+  def period_length_weeks
+    (period_length_days/7).floor
+  end
 end
 
 

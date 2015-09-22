@@ -10,6 +10,22 @@
   <%= @group.trainer.username %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Players</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group.users.each do |player| %>
+      <tr>
+        <td><%= player.username %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
